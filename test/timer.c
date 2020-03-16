@@ -8,7 +8,7 @@ int Num[6] = { 0,0,0,0,0,0 };    //含有6元素一维整型数组
 int num_size;       //全局变量
 num_size = sizeof(Num)/4;   //读取数组的“长度”
 
-int _go()       //定义函数，用于输入进位
+void _go()       //定义函数，用于输入进位
 {
     int i;
     for (i=0;i<(num_size-1);i++)
@@ -17,7 +17,7 @@ int _go()       //定义函数，用于输入进位
     }
 }
 
-int _back()  //定义函数，用于退位
+void _back()  //定义函数，用于退位
 {
     int i;
     for (i=num_size;i>0;i--)
@@ -45,7 +45,7 @@ void pas()
     system("pause");
 }
 
-main()      //主函数
+void main()      //主函数
 {
     int key, time, _count;
     int pass = num_size - 1;
@@ -83,7 +83,7 @@ main()      //主函数
 
     while (i<num_size)
     {
-        shu = shu + Num[i]*pow(10,(num_size-1-i));
+        shu = shu + Num[i]*pow(10,((double)num_size-1-(double)i));
         i++;
     }
 
@@ -93,7 +93,7 @@ main()      //主函数
         printf("%06d",_count);
         Sleep(1000);        //程序暂停1秒
     }
+
     printf("\n");
     system("pause");        //暂停程序
-    return 0;
 }
